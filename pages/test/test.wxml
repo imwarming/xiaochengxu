@@ -1,0 +1,52 @@
+<!--pages/release/release.wxml-->
+<!-- 发布 -->
+<view class='wxapp'>
+<view class='input-col bor-b'>
+<text class='input-type'>补习类型:</text>
+<picker bindchange="reviewtype" value='{{index}}' range='{{arrReview}}'>
+<input disabled placeholder='请选择你需求的类型' value='{{arrReview[index]}}'></input>
+</picker>
+</view>
+<view class='input-col bor-b'>
+<text class='input-type'>补习地址:</text>
+<picker bindchange="chooseAddress" value='{{index2}}' range='{{arrAdress}}'>
+<input disabled placeholder='请选择孩子的补习地址' value='{{arrAdress[index2]}}'></input>
+</picker>
+</view>
+<view class='input-col bor-b'>
+<text class='input-type'>补习时间：</text>
+<picker mode="date" value="{{date}}" start="2015-09-01" end="2030-09-01" bindchange="choosetime">
+<input disabled placeholder='请选择孩子的补习时间' value='{{date}}'></input>
+</picker>
+</view>
+<view class='input-col bor-b' bindtap='selectAddress'>
+<text class='input-type '>你的地址：</text>
+<input disabled placeholder='请选择你所在的地址' value="{{addressUser}}"></input>
+<image src='/images/right.png'></image>
+</view>
+<view class='input-col bor-b'>
+<text class='input-type'>需求标题：</text>
+<input placeholder='请输入你想帮助孩子提升/提高什么？'></input>
+</view>
+<view class='in-demand bor-b'>
+<view class='dema-title'>
+<text>需求内容详细描述：</text>
+</view>
+<view class='demand-col'>
+<textarea placeholder='请描述一下你要帮助孩子提升/提高那方面的成绩，目前小孩在哪个阶段，平时成绩怎么样，想要达到哪个水平？等等....'></textarea>
+</view>
+</view>
+<view class='in-demand'>
+<view class='dema-title'>
+<text>上传图片：（最少1张）</text>
+</view>
+<view class='demand-col demand-col2'>
+<view class='up-img'></view>
+</view>
+</view>
+
+<!-- 提交按钮 -->
+<view class='release-btn'>
+<button>确认发布</button>
+</view>
+</view>

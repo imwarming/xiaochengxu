@@ -1,0 +1,77 @@
+<!--pages/shop_store/shop_store.wxml-->
+<view>
+    <view class="nav">
+        <image src="../../resource/images/check.png" class="back" mode="widthFix" style="width: 44rpx;margin-left: 32rpx;float: left"></image>
+        <input type="text" placeholder="搜索店内商品" class="search"></input>
+        <image src="../../resource/images/check.png" class="share" mode="widthFix" style="width: 44rpx;margin-right: 32rpx;float: right"></image>
+    </view>
+    <view class="store_title">
+        <view class="store_icon">
+            <image src="../../resource/images/check.png" class="icon" mode="widthFix" style='width:120rpx;height: 120rpx;'></image>
+        </view>
+        <view style="flex: 1">
+            <view class="store_name">
+                店铺名称
+            </view>
+            <view>
+                <image src="../../resource/images/store_icon.png" class="icon" mode="widthFix" style='width:120rpx;'></image>
+                <text style="font-size: 20rpx;">销量:{{0}}</text>
+            </view>
+            <view class="store_intro">
+                <view>店铺简介店铺简介店铺简介店铺简介店铺简介店铺简介店铺简介店铺简介店铺简介店铺简介店铺简介</view>
+                <image src="../../resource/images/dianzan.png" class="icon" mode="widthFix" style='width:54rpx;height:54rpx;'></image>
+            </view>
+        </view>
+    </view>
+    <scroll-view scroll-x="true" class="scroll_title" scroll-left="{{scrollLeft}}">
+        <!--<view class="tab-item {{currentTab==-1?'active':''}}"  data-current="-1" bindtap="swichNav">全部</view>-->
+        <view class="tab-item {{currentTab==index?'active':''}}" wx:for="{{goods_type}}" wx:for-item="goods_type" wx:key="{{goods_type.id}}"   data-current="{{index}}" bindtap="swichNav" id="{{goods_type.id}}">{{goods_type.name}}</view>
+        <!--<view class="tab-item {{currentTab==1?'active':''}}"  data-current="1" bindtap="swichNav">精彩回放</view>-->
+        <!--<view class="tab-item {{currentTab==2?'active':''}}"  data-current="2" bindtap="swichNav">进口饮料</view>-->
+        <!--<view class="tab-item {{currentTab==3?'active':''}}"  data-current="3" bindtap="swichNav">衣服</view>-->
+        <!--<view class="tab-item {{currentTab==4?'active':''}}"  data-current="4" bindtap="swichNav">鞋子</view>-->
+    </scroll-view>
+
+    <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+            style="height:{{winHeight}}rpx">
+        <swiper-item wx:for="{{goods_type}}" wx:key="*this">
+            <scroll-view scroll-y="true" class="scoll-h" >
+                <block>
+                    <view class="goods_list">
+                        <view class="goods_details" wx:for="{{goods_items}}" wx:for-item="item" wx:key="{{item.goods_id}}" id="{{item.goods_id}}" bindtap='ToShopDetails'>
+                            <view class="goods_photo">
+                                <image src="{{item.goods_img}}" style="width: 368rpx;height: 368rpx;"></image>
+                            </view>
+                            <view class="goods_name_pricce">
+                                <view class="goods_name">
+                                    {{item.goods_name}}
+                                </view>
+                                <view class="goods_price">
+                                    <view style="display: inline-block;">￥{{item.goods_price}}</view>
+                                    <view style="display: inline-block;float: right">
+                                        <image src="{{item.is_fabulous=='1'?'../../resource/images/dianzansuccess.png':'../../resource/images/dianzan.png'}}" alt="" style="width: 40rpx;height: 40rpx;" catchtap="goods_dianzan" id="{{item.id}}"  data-index="{{index}}"/>
+                                        <text>{{item.fabulous}}</text>
+                                    </view>
+                                </view>
+                            </view>
+
+                        </view>
+                    </view>
+                    <!--<view class="item-ans">-->
+                        <!--<view class="avatar">-->
+                            <!--<image class="img" src="../../resource/images/dianzan.png" style="width: 20rpx;height: 20rpx;"></image>-->
+                        <!--</view>-->
+                        <!--<view class="expertInfo">-->
+                            <!--<view class="name">欢颜</view>-->
+                            <!--<view class="tag">知名情感博主</view>-->
+                            <!--<view class="answerHistory">134个回答，2234人听过 </view>-->
+                        <!--</view>-->
+                        <!--<navigator url="/pages/askExpert/expertDetail" class="askBtn">问TA</navigator>-->
+                    <!--</view>-->
+                </block>
+            </scroll-view>
+        </swiper-item>
+    </swiper>
+
+
+</view>

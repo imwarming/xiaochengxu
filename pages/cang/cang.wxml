@@ -1,0 +1,52 @@
+<!--pages/cang/cang.wxml-->
+<text>pages/cang/cang.wxml</text>
+<view>
+  四大仓
+</view>
+  <scroll-view scroll-x="true" class="scroll_title" scroll-left="{{scrollLeft}}">
+      <!--<view class="tab-item {{currentTab==-1?'active':''}}"  data-current="-1" bindtap="swichNav">全部</view>-->
+      <view class="tab-item {{currentTab==index?'active':''}}" wx:for="{{goods_type}}" wx:for-item="goods_type" wx:key="{{goods_type.id}}"   data-current="{{index}}" bindtap="swichNav" id="{{goods_type.id}}">{{goods_type.name}}</view>
+      <!--<view class="tab-item {{currentTab==1?'active':''}}"  data-current="1" bindtap="swichNav">精彩回放</view>-->
+      <!--<view class="tab-item {{currentTab==2?'active':''}}"  data-current="2" bindtap="swichNav">进口饮料</view>-->
+      <!--<view class="tab-item {{currentTab==3?'active':''}}"  data-current="3" bindtap="swichNav">衣服</view>-->
+      <!--<view class="tab-item {{currentTab==4?'active':''}}"  data-current="4" bindtap="swichNav">鞋子</view>-->
+  </scroll-view>
+  <view class='saixuan'>
+    <view id="1" bindtap="goodsSort">综合</view>
+    <view data-id="{{sortPrice}}" bindtap="goodsSortPrice">价格 <text>↑</text><text>↓</text></view>
+    <view id="4" bindtap="goodsSort">销量</view>
+  </view>
+
+  <swiper class="tab-content" current="{{currentTab}}" duration="300" bindchange="switchTab"
+          style="height:{{winHeight}}rpx">
+      <swiper-item wx:for="{{goods_type}}" wx:key="*this">
+          <scroll-view scroll-y="true" class="scoll-h" >
+              <block>
+                  <view class="goods_list">
+                      <view class="goods_details" wx:for="{{goods_items}}" wx:for-item="item" wx:key="{{item.goods_id}}" id="{{item.goods_id}}" bindtap='ToShopDetails'>
+                          <view class="goods_photo">
+                              <image src="{{item.goods_img}}" style="width: 368rpx;height: 368rpx;"></image>
+                          </view>
+                          <view class="goods_name_pricce">
+                              <view class="goods_name">
+                                  {{item.goods_name}}
+                              </view>
+                              <view class="goods_price">
+                                  <view style="display: inline-block;">￥{{item.goods_price}}</view>
+                                  <view style="display: inline-block;float: right">
+                                      <image src="{{item.is_fabulous=='1'?'../../resource/images/dianzansuccess.png':'../../resource/images/dianzan.png'}}" alt="" style="width: 40rpx;height: 40rpx;" catchtap="goods_dianzan" id="{{item.id}}"  data-index="{{index}}"/>
+                                      <text>{{item.fabulous}}</text>
+                                  </view>
+                              </view>
+                          </view>
+
+                      </view>
+                  </view>
+              </block>
+          </scroll-view>
+      </swiper-item>
+  </swiper>
+
+<picker mode="date" value="{{date}}" start="2016-09-26" end="2088-10-10" bindchange="listenerDatePickerSelected">
+    <text>{{date}}</text>
+</picker>

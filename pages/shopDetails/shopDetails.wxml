@@ -1,0 +1,158 @@
+<!--pages/shopDetails/shopDetails.wxml-->
+<scroll-view style="margin-bottom: 96rpx;">
+  <view class='lunbo'>
+    <swiper
+      indicator-dots="{{indicatorDots}}"
+      autoplay="{{autoplay}}"
+      interval="{{interval}}"
+      duration="{{duration}}"
+      >
+      <block wx:for="{{goods_imgs}}" wx:key="goods_imgs">
+        <swiper-item>
+          <image src="{{item}}" class="slide-image" style="height:350px" />
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view style='margin-left:33rpx;margin-top: 15rpx;color: #FF5858'>
+    ￥<text style="font-size: 36rpx;" wx:if="goods_price==goods_max_price">{{goods_price}}</text>
+      <text style="font-size: 36rpx;" wx:else>{{goods_price}}——{{goods_max_price}}</text>
+  </view>
+  <view class="shop_name">
+    <view class='goods_name' style=''>{{goods_name}}</view>
+    <view>
+      <image src="{{zan_img}}" style="width: 56rpx;height: 56rpx;" bindtap='dianzan'></image>
+      <view style="font-size:20rpx;text-align:center;color:{{is_fabulous=='1'?'#FF5858':'#808080'}}">{{goods_fabulous}}</view>
+    </view>
+    <view style="display: flex;width: 100%;font-size: 24rpx;margin-top: 20rpx;margin-bottom: 20rpx;">
+      <view style="width: 33.33%;">
+        <text>运费:{{shop_fee}}</text>
+      </view>
+      <view style="width: 33.33%;text-align: center;font-size: 24rpx;">
+        <text>库存:{{shop_fee}}</text>
+      </view>
+      <view style="width: 33.33%;text-align: right;font-size: 24rpx;">
+        <text>销量:{{goods_sales}}</text>
+      </view>
+    </view>
+    <view class='chengnuo'>
+      <view wx:for="{{goods_promise}}" wx:key="goods_promise">
+        <image src='../../resource/images/check.png' style='width: 20rpx;height:20rpx;vertical-align: unset'></image>
+        <text style="margin-left: 2rpx;">{{item}}</text>
+      </view>
+      <!--<view>-->
+        <!--<image src='../../resource/images/check.png' style='width: 20rpx;height:20rpx;vertical-align: unset'></image>-->
+        <!--<text>24小时发货</text>-->
+      <!--</view>-->
+      <!--<view>-->
+        <!--<image src='../../resource/images/check.png' style='width: 20rpx;height:20rpx;vertical-align: unset'></image>-->
+        <!--<text>24小时发货</text>-->
+      <!--</view>-->
+    </view>
+    <view style="font-size: 28rpx;margin-top: 20rpx;width: 100%;height: 80rpx;line-height: 80rpx;">
+      选择 <text style="float: right">规格</text>
+    </view>
+    <view class="comment">
+      <text style="font-size: 32rpx;">商品评价</text>
+      <text style="font-size: 24rpx;line-height: 50rpx;float: right">查看全部</text>
+    </view>
+    <view class="evaluate" wx:for="{{comment}}" wx:key="{{comment.id}}" id="{{item.id}}">
+        <view class="user_evaluate">
+            <view class="user_evaluate_photo">
+              <image src="{{item.user_avatar}}" alt=""/>
+            </view>
+            <view class="user_nickname">
+                <text>{{item.user_name}}</text>
+                <view>
+                    <image src="../../resource/images/star.png" wx:if="item.grade>0" wx:for="{{item.grade-0}}" wx:key="{{item.id}}" style="width: 20rpx;height: 20rpx;" alt=""/>
+                    <text style="float: right">评论时间</text>
+                </view>
+            </view>
+        </view>
+        <text class="comment_container">{{item.content}}</text>
+        <view class="xinghao">
+          <text>型号:</text>
+          <text>{{item.goods_spec_details}}</text>
+          <view style="float: right">
+            <image src="{{item.is_fabulous=='1'?'../../resource/images/dianzansuccess.png':'../../resource/images/dianzan.png'}}" alt="" style="width: 40rpx;height: 40rpx;" bindtap="comment_dianzan" id="{{item.id}}"  data-index="{{index}}"/>
+            <text>{{item.fabulous}}</text>
+          </view>
+          <view class="comment-image" wx:if="{{item.img.length>0}}">
+            <image src="{{img}}" wx:for="{{item.img}}" wx:for-item="img" wx:key="{{item.img}}" alt=""/>
+          </view>
+        </view>
+      </view>
+    <view class="shop_store">
+      <view class="store_img">
+        <image src="../../resource/images/timg.jpg" alt=""/>
+      </view>
+      <view class="store_details">
+        <view style="font-size: 28rpx;">
+          店铺名称名称
+        </view>
+        <view style="font-size: 28rpx;">
+          <text>1点赞</text><text>2销量</text>
+          <button type="warn" size="mini" hover-class="none" style="float: right">进入店铺</button>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="goods_details">
+    ——商品详情——
+    <view>
+      <image src="{{item}}" alt="" style="width: 100%;" mode="widthFix"  wx:for="{{goods_detail}}" wx:key="goods_detail"/>
+    </view>
+  </view>
+</scroll-view>
+
+<view class="bottom">
+  <view style="width: 117rpx;border-right: 1px solid #f0f0f0;font-size: 20rpx;text-align: center;background: #fff;">
+    <image src="../../resource/images/kefu.png" style="width: 40rpx;height: 40rpx;margin-top: 13rpx;"></image>
+    <view>联系商家</view>
+  </view>
+  <view style="width: 117rpx;font-size: 20rpx;text-align: center;background: #fff;" id="{{store_id}}" bindtap="ToShopStore">
+    <image src="../../resource/images/dianpu.png" style="width: 40rpx;height: 40rpx;margin-top: 13rpx;"></image>
+    <view>店铺</view>
+  </view>
+  <view style="line-height: 96rpx;background: #F857A6;width: 258rpx;text-align: center;color: #fff;font-size: 28rpx;" bindtap="addToCart">加入购物车</view>
+  <view style="line-height: 96rpx;background: #FF5858;width: 258rpx;text-align: center;color: #fff;font-size: 28rpx;" bindtap="Pay">立即购买</view>
+</view>
+
+<view style="position: fixed;top: 0;left: 0;width: 100%;height: 100%;background: rgba(0,0,0,0)" catchtouchmove="true" wx:if="{{buy_show}}" catchtap="hide">
+  <view class="guige">
+    <view class="guige_title">
+      <view class="guige_image">
+        <image src="{{goods_imgs}}" bindtap="hide"></image>
+      </view>
+      <view class="price_kucun">
+        <view style="font-size: 40rpx;color: #FF5858">
+          ￥{{spec_price}}
+          <image src="../../resource/images/close.png" style="width: 40rpx;height: 40rpx;float: right;margin-right: 32rpx;"></image>
+        </view>
+        <view style="font-size: 28rpx;color: #333333;margin-top: 35rpx;">库存:{{spec_stock}}</view>
+      </view>
+    </view>
+    <scroll-view class="guige_details">
+      <view class="guige_all" wx:for="{{spec}}" wx:for-item="group" wx:key="{{group.group}}">
+        <view class="guige_details_first" data-group="{{group.group}}">
+          {{group.group}}
+        </view>
+        <view class="guige_details_second">
+          <label class="{{list.is_select=='Y'?'active':''}}"  wx:for="{{group.list}}" wx:key="{{list.id}}" wx:for-item="list" catchtap="check" data-spec_value="{{list.spec_value}}" data-group="{{group.group}}" data-id="{{list.id}}" data-index="{{index}}">{{list.spec_value}}</label>
+        </view>
+      </view>
+
+    </scroll-view>
+    <view class="buyNum">
+      <view>购买数量:</view>
+      <view>
+        <button catchtap="reduce">-</button>
+        <input catchtap="changeNum" type="text" placeholder="{{num}}" value="{{num}}"/>
+        <button catchtap="add">+</button>
+      </view>
+    </view>
+    <view class="sure" catchtap="sure">
+      确认
+    </view>
+  </view>
+</view>

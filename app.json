@@ -1,0 +1,44 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/shopDetails/shopDetails",
+    "pages/cart/cart",
+    "pages/submitOrder/submitOrder",
+    "pages/shop_store/shop_store",
+    "pages/my/my/my",
+    "pages/my/shopCart/shopCart",
+    "pages/cang/cang",
+    "pages/test/test"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "首页",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      },
+      {
+        "pagePath": "pages/my/shopCart/shopCart",
+        "text": "购物车"
+      },
+      {
+        "pagePath": "pages/my/my/my",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  }
+}

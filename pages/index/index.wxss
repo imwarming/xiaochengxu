@@ -1,0 +1,96 @@
+.lunbo{
+  text-align: center;
+  width: 100%;
+}
+swiper image{
+  width: 100%;
+  height: 100%;
+}
+.cang{
+  width: 100%;
+}
+.flex-wrp{
+  display: flex;
+  flex-wrap: wrap;
+  text-align: center;
+  padding: 32rpx;
+}
+.flex-wrp>view:nth-child(2n){
+  margin-left: 22rpx;
+}
+.flex-item{
+  text-align:center;
+  line-height: 100px;
+}
+.bc_green {
+box-sizing: border-box;
+background:green;
+width:50%;
+height:100px;
+}
+.bc_red {
+box-sizing: border-box;
+background:red;
+width:50%;
+height:100px;
+}
+.bc_blue {
+box-sizing: border-box;
+background:blue;
+width:50%;
+height:100px;
+}
+.shop_show{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap
+}
+.shop{
+  width: 50%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.shop_image{
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  overflow: hidden
+}
+.shop image{
+  width: 100%;
+}
+.shop_title{
+  overflow : hidden;
+  text-overflow : ellipsis;
+  display : -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+/*回到顶部*/
+.bigWrap{
+  background:#eee;
+}
+.com-widget-goTop {
+  position: fixed;
+  bottom: 125px;
+  right: 5px;
+  background: rgba(0,0,0,0.48);
+  border-radius: 50%;
+  overflow: hidden;
+  z-index: 500;
+}
+.com-widget-goTop .icon-gotop{
+  background-color: rgba(0,0,0,0.8);
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  line-height: 68px;
+  font-size: 12px;
+  color: #ffffff;
+  text-align: center;
+  border-radius: 50%;
+  /* background: url(http://m.dev.vd.cn/static/xcx/v1/goo/w_2-3451cc437e.png) no-repeat center -1110px; */
+  background: image('../../resource/images/top.png') no-repeat center;
+  -webkit-background-size: 50px auto;
+}

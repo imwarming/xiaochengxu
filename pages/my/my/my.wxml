@@ -1,0 +1,12 @@
+<!--pages/my/my/my.wxml-->
+<text>pages/my/my/my.wxml</text>
+<view>
+  <image src='{{userInfo.avatarUrl}}'></image>
+</view>
+<view>
+  <view>{{userInfo.nickName}}</view>
+  <text>{{title}}</text>
+</view>
+<view>
+  00000
+</view>

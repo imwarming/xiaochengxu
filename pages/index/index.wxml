@@ -1,0 +1,53 @@
+<!--index.wxml-->
+
+
+<scroll-view class="bigWrap" scroll-y="true" scroll-top="{{scrollTop}}" bindscroll="scroll" bindscrolltolower= "scrolltolower" style="position: absolute; left: 0; top:0; bottom: 0; right: 0;">
+  <view class="com-widget-goTop" bindtap="goTop" wx:if="{{floorstatus}}">
+    <view class="icon-gotop" style='background:url(../../resource/images/top.png) no-repeat center 5px;background-size:20px;'>
+      顶部
+    </view>
+  </view>
+
+  <view class="container">
+    <view class='lunbo'>
+      轮播部分
+      <swiper
+        indicator-dots="{{indicatorDots}}"
+        autoplay="{{autoplay}}"
+        interval="{{interval}}"
+        duration="{{duration}}"
+        >
+        <block wx:for="{{imgUrls}}" wx:key="imgUrls">
+          <swiper-item>
+            <image src="{{item.carousel_url}}" class="slide-image" width="355" height="150" />
+          </swiper-item>
+        </block>
+      </swiper>
+    </view>
+    <view class="cang">
+      第二部分 4个标题
+      <view class="flex-wrp" style="flex-direction:row;">
+        <view wx:for="{{goods_life}}" wx:for-item="item" wx:key="item.id" id="{{item.id}}">
+          <image src="{{item.icon}}" style="width: 332rpx;height: 332rpx;"></image>
+        </view>
+        <!--<view class="flex-item bc_green">1</view>-->
+        <!--<view class="flex-item bc_red">2</view>-->
+        <!--<view class="flex-item bc_blue">3</view>-->
+        <!--<view class="flex-item bc_green">4</view>-->
+      </view>
+    </view>
+      部分商品展示
+    <view class='shop_show'>
+      <view class='shop' wx:for="{{shop}}" wx:key="item.goods_id" data-id="{{item.goods_id}}" bindtap='toShopDetails'>
+        <view class='shop_image'>
+          <image src='{{item.goods_img}}' mode="widthFix"  ></image>
+        </view>
+        <view class='shop_title'>
+          {{item.goods_name}}
+          <!-- 商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称商品名称 -->
+        </view>
+        <input type='text' placeholder='{{item.goods_id}}'></input>
+      </view>
+    </view>
+  </view>
+</scroll-view>

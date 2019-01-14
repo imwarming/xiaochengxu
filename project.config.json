@@ -1,0 +1,79 @@
+{
+	"description": "项目配置文件",
+	"packOptions": {
+		"ignore": []
+	},
+	"setting": {
+		"urlCheck": false,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true
+	},
+	"compileType": "miniprogram",
+	"libVersion": "2.4.3",
+	"appid": "wx391aebb71098701a",
+	"projectname": "%E5%BE%AE%E5%95%86%E5%9F%8E%E5%B0%8F%E7%A8%8B%E5%BA%8F",
+	"debugOptions": {
+		"hidedInDevtools": []
+	},
+	"isGameTourist": false,
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"currentL": -1,
+			"list": []
+		},
+		"miniprogram": {  //预览模式 
+			"current": 5,
+			"list": [
+				{
+					"id": -1,
+					"name": "商品详情页面",
+					"pathName": "pages/shopDetails/shopDetails",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "店铺",
+					"pathName": "pages/shop_store/shop_store",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "我的",
+					"pathName": "pages/my/my/my",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "购物车",
+					"pathName": "pages/my/shopCart/shopCart",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "四大仓",
+					"pathName": "pages/cang/cang",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test"
+				}
+			]
+		}
+	}
+}
